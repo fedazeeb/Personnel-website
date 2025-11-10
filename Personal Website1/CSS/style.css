@@ -1,0 +1,1274 @@
+@import url('https://fonts.googleapis.com/css2?family=BBH+Sans+Bogle&family=Cairo:wght@200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=BBH+Sans+Bogle&family=Cairo:wght@200..1000&display=swap');
+
+/* add fixed variable */
+:root {
+    --main-color: red;
+}
+
+* {
+    /* عملية تصفير لكل العناصر reset */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* الغاء الخط التحتاني */
+a {
+    text-decoration: none;
+}
+
+html {
+    /* add scroll */
+    scroll-behavior: smooth;
+}
+
+body {
+    /* add font */
+    font-family: cairo;
+    /* تحديد اللغة */
+    direction: rtl;
+    /*height: 3500px;*/
+}
+
+ul {
+    list-style: none;
+}
+
+/* لازم يكون عندي container لمحتوى الموقع كامل بحيث يكون كل المعلومات ضمنها او أغلبها  */
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    /*يعني وزع الهوامش على اليمين واليسار توسيط العنصر */
+    margin-left: auto;
+    margin-right: auto;
+    /*background-color: var(--main-color);*/
+}
+
+/* ضبط اعدادات الشاشة */
+
+/* Small devices (landscape phones, 576px and up) mobile*/
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        /* عرض الشاشة بالكامل */
+    }
+}
+
+/* Medium devices (tablets, 768px and up) tab */
+@media (min-width: 768px) and (max-width: 991px) {
+    .container {
+        width: 750px;
+        /* الزيادة هي هوامش */
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        width: 970px;
+        /* الزيادة هي هوامش */
+    }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+
+/* start header style */
+header {
+    background-color: white;
+    border: 1px solid rgb(107, 106, 106);
+    position: sticky;  /* fexied on top*/
+    top: 0;
+    z-index: 1000; /* top navbar */
+}
+
+header .container {
+    /* لغى كل الحدود وصارت العناصر جنب بعضها البعض */
+    display: flex;
+    /* توزيع المساحة بين العناصر افقيا */
+    justify-content: space-between;
+    /* توزيع العناصر عاموديا */
+    align-items: center;
+    /* الاب */
+    position: relative;
+}
+
+header .container img {
+    width: 30px;
+}
+
+header .container nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    header .container nav {
+        justify-content: end;
+    }
+}
+
+header .container nav ul {
+    /*  */
+    display: flex;
+    /*align-items: center;*/
+}
+
+/* اخفاء للعناصر عند المقاس هادت */
+@media (max-width: 768px) {
+    header .container nav ul {
+        display: none;
+    }
+}
+
+/* اظهار زر ال menu */
+@media (min-width: 768px) {
+    .container .nav-tog {
+        display: none;
+    }
+}
+
+/* next جعل العناصر بشكل عامودي للقائمة*/
+.nav-tog:hover+ul {}
+/* using js to make list colom appear */
+.mobile-nav1 {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    background-color: red;
+    width: 100%;
+    transition: 0.3s;
+}
+
+header .container nav ul li a {
+    /* تنسيق للرابط */
+    display: block;
+    padding: 20px 10px;
+    /* updaown leftright */
+    font-size: 15px;
+    font-weight: 700;
+    color: black;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    header .container nav ul li a {
+        border-bottom: 1px solid black;
+    }
+}
+
+header .container nav ul li a.active,
+header .container nav ul li a:hover {
+    color: white;
+    background-color: var(--main-color);
+}
+
+/* عملية تنسيق ال icon تبع ال social media  */
+header .container .social {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* اخفاء عناصر ال social media عند المقاصات الصغيرة */
+@media (max-width: 768px) {
+    header .container .social {
+        display: none;
+    }
+}
+
+/* تنسيق عناصر ال social media */
+header .container .social i {
+    margin: 5px;
+    font-size: 17px;
+    display: flex;
+    width: 35px;
+    height: 35px;
+    background-color: var(--main-color);
+    /* حطيتون بالنص  */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 50%;
+    transition: 0.3px;
+    cursor: pointer;
+}
+
+.container .social i:hover {
+    background-color: black;
+    /*font-size: 19px;*/
+    scale: 1.1;
+    /* animation */
+}
+
+/* end header style */
+
+/* start hero section */
+
+.hero {
+    background-image: url('../images/background.jpg');
+    /* ضبط اعدادات تاخد ارتفاع الشاشة بطرح منها ال nav bar */
+    /*height: calc(80vh - 60px);*/
+}
+
+.hero .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .hero .container {
+        flex-direction: column-reverse;
+    }
+}
+
+.hero .container .hero-title {
+    color: var(--main-color);
+    font-size: 60px;
+    font-family: almarai;
+    font-weight: 800;
+}
+
+
+.hero .container .hero-info p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    width: 90%;
+}
+
+.hero .container .hero-info h2 {
+    color: black;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+
+.hero .container .hero-img img {
+    width: 400px;
+}
+
+
+.hero .container .social {
+    display: flex;
+}
+
+
+.hero .container .social i {
+    margin: 5px;
+    font-size: 17px;
+    display: flex;
+    width: 35px;
+    height: 35px;
+    background-color: var(--main-color);
+    /* حطيتون بالنص  */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 50%;
+    transition: 0.3px;
+    cursor: pointer;
+}
+
+.hero .container .hero-info .call {
+    display: flex;
+    justify-content: start;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        /*height: calc(100vh - 60px);*/
+    }
+
+    .hero .container .hero-title {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .hero .container .hero-info h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .hero .container .hero-info p {
+        font-size: 16px;
+        line-height: 1.5;
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero .container .hero-img img {
+        width: 250px;
+    }
+
+    .hero .container .social {
+        justify-content: center;
+        /*display: none;*/
+    }
+
+    .hero .container .hero-info .call {
+        justify-content: center;
+    }
+}
+
+.hero .container .hero-info .call button {
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+.hero .container .hero-info .call button:hover {
+    cursor: pointer;
+    background-color: black;
+    scale: 1.1;
+
+}
+
+/* end hero setion */
+
+/* start service setion */
+.services {
+    background-color: #ccc;
+    padding: 50px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 40px;
+    color: var(--main-color);
+    margin-bottom: 20px;
+    font-family: almaraie;
+}
+
+.section-desc {
+    text-align: center;
+    font-size: 20px;
+    color: black;
+    margin-bottom: 30px;
+}
+
+.all-services {
+    /* توزيع العناصر بطريقة احترافية responsive للشاشات */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    /*بعرض 250 وطول 1 عدد الاعمدة تلقائي */
+    gap: 15px;
+    /* فراغات بين العنصر والتالي */
+}
+
+.all-services .service {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+    /*كل شي زيادة رح تختفي */
+}
+
+/* add box //line// */
+.all-services .service::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 0;
+    background-color: var(--main-color);
+    transition: 0.5s;
+}
+
+/* add box //line// */
+.all-services .service::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 2px;
+    height: 0;
+    background-color: var(--main-color);
+    transition: 0.5s;
+}
+
+.all-services .service:hover::before {
+    height: 100%;
+}
+
+.all-services .service:hover::after {
+    height: 100%;
+}
+
+.all-services .service:hover {
+    /*scale: 1.03;*/
+    transform: translatey(-10px);
+    /* animation */
+}
+
+.all-services .service img {
+    width: 70px;
+    margin-bottom: 15px;
+}
+
+.all-services .service h3 {
+    margin-bottom: 15px;
+    color: red;
+}
+
+.all-services .service p {
+    line-height: 1.5;
+}
+
+/* end servic setion */
+
+/* start about us setion */
+.about-us {
+    padding: 50px;
+}
+
+.about-us .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about-info,
+.about-img {
+    width: 50%;
+    /* اقسم الشاشة نصين */
+}
+
+.about-us h2 {
+    font-size: 30px;
+    color: var(--main-color);
+    margin-bottom: 20px;
+}
+
+.about-us p {
+    font-size: 17px;
+    line-height: 1.7;
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.about-us .about-call {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    /* بلغي كل شي زيادة فوق الشكل مثل الزوايا*/
+    z-index: 1;
+    /* منشان الكتابة بالاول*/
+}
+
+
+.about-us .about-call::before {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: black;
+    transition: 0.3s;
+    z-index: -1;
+}
+
+.about-us .about-call:hover::before {
+    width: 50%;
+}
+
+.about-us .about-call::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    right: 0;
+    top: 0;
+    background-color: black;
+    transition: 0.3s;
+    z-index: -1;
+}
+
+.about-us .about-call:hover::after {
+    width: 50%;
+}
+
+.about-us .about-img {
+    background-color: var(--main-color);
+}
+
+.about-us .about-img img {
+    transform: translate(-10px, -10px);
+    width: 100%;
+    /* 100% من الاب */
+}
+
+@media (max-width: 768px) {
+    .about-us .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-info,
+    .about-img {
+        width: 100%;
+        /* الشاشة كاملة */
+    }
+
+    .about-us p {
+        width: 100%;
+    }
+
+    .about-us .about-call {
+        margin-bottom: 25px;
+    }
+
+    .about-us .about-img img {
+        transform: translate(0, 0);
+    }
+}
+
+/* end about us setion */
+
+/* start statistic setion */
+.statistic {
+    padding: 70px 0;
+    background-color: green;
+    background-image: url(../images/st-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    /*صورة ثابتة  */
+    position: relative;
+}
+
+/* طبقة شفافة */
+.statistic .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(233, 226, 226, 0.007);
+}
+
+.statistic .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    /* كامل المساحة المتوفرة ويبدا من ال 250*/
+    gap: 25px;
+}
+
+.statistic .container .stac {
+    background-color: white;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.statistic .container .stac:hover {
+    scale: 1.05;
+    background-color: rgba(255, 255, 255, 0.616);
+}
+
+.statistic .container .stac h3 {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.statistic .container .stac p {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+/* end statistic setion */
+
+/* start statistic card setion */
+.courses {
+    padding: 70px 0;
+}
+
+.courses .all-courses {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    background-color: #ccc;
+}
+
+.courses .all-courses .course {
+    background-color: white;
+    padding-bottom: 20px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+    /* منشان الزوايا تبع الصورة */
+}
+
+.courses .all-courses .course:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 10px #5c5959;
+}
+
+.courses .all-courses .course img {
+    width: 100%;
+    /* من عرض الاب */
+}
+
+.courses .all-courses .course .course-title {
+    color: var(--main-color);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.courses .all-courses .course p {
+    color: rgb(59, 58, 58);
+    line-height: 1.7;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.course-price {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* استهدف اخر ولد */
+.course-price div :last-child {
+    color: red;
+    font-weight: 700;
+    text-decoration: line-through;
+}
+
+.course-price :last-child {
+    font-size: 21px;
+    font-weight: 700;
+}
+
+hr {
+    width: 80%;
+    transform: translateX(-10%);
+    margin-bottom: 15px;
+    border: none;
+    height: 1px;
+    background-color: #eee;
+}
+
+.course-details {
+    background-color: var(--main-color);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 20px;
+    margin-top: 10px;
+    width: 90%;
+    cursor: pointer;
+}
+
+.course-details:hover {
+    background-color: rgb(243, 93, 93);
+}
+
+.category {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: var(--main-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.course-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 15px;
+}
+
+.course-info i {
+    margin-left: 10px;
+}
+
+.previows {
+    color: rgb(119, 119, 4);
+}
+
+/* end statistic setion */
+
+/* start portfolio setion */
+.portfolio {
+    padding: 70px 0;
+    background-color: #eee;
+}
+
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.box {
+    text-align: center;
+    border: 1px solid #ccc;
+    position: relative;
+    overflow: hidden;
+    /* كل شي برات حدودي اخفيه*/
+    cursor: pointer;
+}
+
+.box img {
+    max-width: 100%;
+}
+
+.portfolio-container .box .info {
+    background-color: rgba(22, 21, 21, 0.219);
+    padding: 15px 0;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    transition: 0.5s;
+}
+
+.box .info h3 {
+    font-size: 30px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.portfolio-container .box:hover .info {
+    left: 0;
+}
+
+.porject-link {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 70%;
+    margin: auto;
+}
+
+/* end portfolio setion */
+
+.our-team {
+    background-color: #eee;
+    padding: 70px 0;
+}
+
+/* start team-work setion */
+
+.our-team .team-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.team-box {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.4s;
+    cursor: pointer;
+    box-shadow: 0 0 10px #666363;
+}
+
+.team-box:hover {
+    transform: translateY(-15px);
+}
+
+.team-box:hover img {
+    filter: grayscale(100%);
+}
+
+.img-social {
+    display: flex;
+    justify-content: space-between;
+}
+
+.img-social .social {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 5px;
+    padding-top: 10px;
+}
+
+.img-social .social i {
+    margin: 4px;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.img-social img {
+    width: 80%;
+    border-radius: 0 0 15px;
+}
+
+.team-info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+}
+
+.team-info h3 {
+    color: var(--main-color);
+}
+
+/* end team-work setion */
+/* start skills setion */
+.our-skills {
+    padding: 70px 0;
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.our-skills .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.skills-info,
+.skills-img {
+    width: 40%;
+}
+
+@media (max-width: 768px) {
+    .our-skills .container {
+        flex-direction: column-reverse;
+    }
+
+    .skills-info,
+    .skills-img {
+        width: 100%;
+    }
+}
+
+.skills-img img {
+    width: 100%;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.skills-img img:hover {
+    filter: grayscale(100%);
+}
+
+.count {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.count :last-child {
+    color: var(--main-color);
+    border: 1px solid rgb(75, 74, 74);
+    border-radius: 2px;
+    padding: 2px 3px;
+}
+
+.progress .prog {
+    width: 100%;
+    height: 30px;
+    background-color: rgb(66, 64, 64);
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.progress .prog span {
+    position: absolute;
+    /*width: 50%;*/
+    height: 100%;
+    background-color: var(--main-color);
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.progress .prog span:hover {
+    width: 100% !important;
+}
+
+/* end skills setion */
+/* start pricing setion */
+.pricing-section {
+    padding: 70px 0;
+    background-color: #eee;
+}
+
+.pricing-section .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.plan {
+    background-color: white;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.plan:nth-child(2)::before {
+    content: "عرض خاص";
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    background-color: green;
+    color: white;
+    top: 30px;
+    left: -50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(-45deg);
+    z-index: -1;
+}
+
+.plan:hover {
+    scale: 1.05;
+}
+
+.plan .plan-title {
+    font-size: 23px;
+    color: var(--main-color);
+    margin-top: 25px;
+}
+
+.plan .price :first-child {
+    color: var(--main-color);
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.plan .price :last-child {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.plan ul {
+    text-align: right;
+    padding: 15px;
+}
+
+.plan ul li {
+    padding: 15px;
+    padding-right: 20px;
+    border-top: 1px solid #eee;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+}
+
+.plan ul li:hover {
+    background-color: #eee;
+}
+
+.plan ul li::before {
+    /* add icon */
+    content: "\f060";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color: var(--main-color);
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    position: absolute;
+}
+
+.plan-btn {
+    background-color: var(--main-color);
+    width: 90%;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 5px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.plan-btn:hover {
+    scale: 1.05;
+}
+
+
+/* end skills setion */
+
+/* start skills setion */
+.test-customers {
+    padding: 70px 0;
+}
+
+.test-customers .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 15px;
+}
+
+.test-customers .container .test-customer {
+    background-color: #eee;
+    position: relative;
+    padding: 20px;
+    border-radius: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.test-customers .container .test-customer:hover {
+    transform: translateY(-5px);
+}
+
+.test-customers .container .test-customer::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: var(--main-color);
+    height: 0%;
+    transition: 0.3s;
+}
+
+.test-customers .container .test-customer:hover::before {
+    height: 50%;
+}
+
+.test-customers .container .test-customer::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 3px;
+    background-color: var(--main-color);
+    transition: 0.3s;
+}
+
+.test-customers .container .test-customer:hover::after {
+    width: 50%;
+}
+
+.test-customers .container .test-customer img {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 70%;
+    left: 5px;
+    top: -20px;
+    border: 7px solid white;
+}
+
+.test-customers .container .test-customer h3 {
+    color: var(--main-color);
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.test-customers .container .test-customer .title-test-customer {
+    margin-bottom: 10px;
+}
+
+.test-customers .container .test-customer .stars .fill {
+    color: yellow;
+}
+
+.test-customers .container .test-customer .review {
+    font-size: 16px;
+    line-height: 16px;
+    margin-top: 15px;
+}
+
+/* end skills setion */
+/* start footer setion */
+footer {
+    padding-top: 40px;
+    background-color: rgb(82, 81, 81);
+    background-image: url("../images/footerbg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top: 5px solid var(--main-color);
+}
+
+footer .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+@media(max-width: 768px) {
+    footer .container .section {
+        padding-right: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+footer .container .section h2 {
+    color: white;
+}
+
+footer .container .section p {
+    color: white;
+    margin-top: 15px;
+    line-height: 1.8;
+}
+
+footer .container .section a {
+    color: white;
+    display: block;
+    /* تحكم كامل*/
+    margin-top: 15px;
+    transition: 0.3s;
+    position: relative;
+}
+
+footer .container .section a::after {
+    content: "\f060";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color: var(--main-color);
+    position: absolute;
+    top: 50%;
+    font-size: 12px;
+    right: -15px;
+    transform: translateY(-50%);
+}
+
+footer .container .section a:hover {
+    color: var(--main-color);
+    padding-right: 5px;
+    font-weight: bold;
+}
+
+.letter form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.letter form input[type=text],
+.letter form input[type=email] {
+    height: 40px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    caret-color: var(--main-color);
+}
+
+.letter form input[type=text]:focus,
+.letter form input[type=email]:focus {
+    outline: none;
+    /*border: 1px solid yellow;*/
+}
+
+.letter form input[type=submit] {
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.letter form input[type=submit]:hover {
+    background-color: black;
+    border: 1px solid var(--main-color);
+}
+
+.hr-footer {
+    width: 60%;
+    margin-top: 35px;
+    transform: translateX(-15%);
+}
+
+.copywrite {
+    text-align: center;
+    color: white;
+}
+
+/* end skills setion */
+.btn-whatsup {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: rgb(59, 219, 59);
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    box-shadow: 0 0 3px #eee;
+}
+
+.btn-whatsup:hover {
+    scale: 1.1;
+}
+
+.btn-whatsup i {
+    font-size: 30px;
+}
